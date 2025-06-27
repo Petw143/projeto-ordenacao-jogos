@@ -1,0 +1,41 @@
+services:
+  # Teste do sistema
+  test:
+    build: .
+    container_name: ordenacao-test
+    volumes:
+      - ./data:/app/data
+      - ./plots:/app/plots
+      - ./relatorio:/app/relatorio
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    command: ["python", "test_sistema.py"]
+
+  # Execução do experimento completo
+  run:
+    build: .
+    container_name: ordenacao-run
+    volumes:
+      - ./data:/app/data
+      - ./plots:/app/plots
+      - ./relatorio:/app/relatorio
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    command: ["python", "src/main.py"]
+
+  # Ambiente interativo para desenvolvimento
+  shell:
+    build: .
+    container_name: ordenacao-shell
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONPATH=/app/src
+      - PYTHONUNBUFFERED=1
+    command: ["bash"]
+    stdin_open: true
+    tty: true

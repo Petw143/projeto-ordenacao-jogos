@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-06-25T06:39:20.808551",
+  "total_experimentos": 8,
+  "algoritmos_testados": [
+    "merge_sort",
+    "quick_sort"
+  ],
+  "tamanhos_testados": [
+    10000,
+    100000
+  ],
+  "distribuicoes_testadas": [
+    "exponencial",
+    "quase"
+  ],
+  "estatisticas_por_algoritmo": {
+    "merge_sort": {
+      "tempo_medio_geral": 0.37733726094957093,
+      "tempo_desvio_geral": 0.36884424971335733,
+      "memoria_media_geral": 0.71103515625,
+      "throughput_medio_geral": 157961.69302818077
+    },
+    "quick_sort": {
+      "tempo_medio_geral": 0.5091729103249236,
+      "tempo_desvio_geral": 0.5428815924706422,
+      "memoria_media_geral": 0.0,
+      "throughput_medio_geral": 148585.55586800308
+    }
+  },
+  "anova": {
+    "f_statistic": 0.1613926643341943,
+    "p_value": 0.7017960564324307,
+    "significativo": "False"
+  },
+  "matriz_correlacao": {
+    "fator_a_tamanho": {
+      "fator_a_tamanho": 1.0,
+      "tempo_medio": 0.9519094833747692,
+      "memoria_media": 0.5738151908484576,
+      "throughput_medio": -0.8276974227394185
+    },
+    "tempo_medio": {
+      "fator_a_tamanho": 0.9519094833747692,
+      "tempo_medio": 1.0,
+      "memoria_media": 0.3592883228454722,
+      "throughput_medio": -0.9330044108944995
+    },
+    "memoria_media": {
+      "fator_a_tamanho": 0.5738151908484576,
+      "tempo_medio": 0.3592883228454722,
+      "memoria_media": 1.0,
+      "throughput_medio": -0.16746824981122996
+    },
+    "throughput_medio": {
+      "fator_a_tamanho": -0.8276974227394185,
+      "tempo_medio": -0.9330044108944995,
+      "memoria_media": -0.16746824981122996,
+      "throughput_medio": 1.0
+    }
+  }
+}
