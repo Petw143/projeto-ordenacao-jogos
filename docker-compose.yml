@@ -40,11 +40,11 @@ services:
     stdin_open: true
     tty: true
 
-  # Compilação do artigo LaTeX
+  # Compilação do artigo LaTeX (português)
   latex:
     image: texlive/texlive:latest
     container_name: ordenacao-latex
     volumes:
       - .:/app
     working_dir: /app
-    command: ["pdflatex", "-interaction=nonstopmode", "artigo_ieee_latex.tex"]
+    command: ["pdflatex", "-interaction=nonstopmode", "artigo_ieee_portugues.tex"]

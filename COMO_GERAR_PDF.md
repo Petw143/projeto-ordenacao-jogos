@@ -8,7 +8,7 @@
 1. Acesse: https://www.overleaf.com
 2. Crie conta gratuita
 3. New Project → Blank Project
-4. Copie o conteúdo de artigo_ieee_latex.tex
+4. Copie o conteúdo de artigo_ieee_portugues.tex
 5. Cole no main.tex do Overleaf
 6. Clique "Recompile" (botão verde)
 7. Download PDF pronto! ✅
@@ -39,13 +39,13 @@ docker-compose run --rm latex
 #### **Windows:**
 ```powershell
 # Se tiver MiKTeX ou TeX Live instalado
-pdflatex artigo_ieee_latex.tex
+pdflatex artigo_ieee_portugues.tex
 ```
 
 #### **Linux:**
 ```bash
 # Se tiver texlive instalado
-pdflatex artigo_ieee_latex.tex
+pdflatex artigo_ieee_portugues.tex
 ```
 
 ## ⚡ **GUIA RÁPIDO**
@@ -65,7 +65,7 @@ pdflatex artigo_ieee_latex.tex
 
 ## 🎯 **ARQUIVOS CRIADOS**
 
-- `artigo_ieee_latex.tex` ← Arquivo principal LaTeX
+- `artigo_ieee_portugues.tex` ← Arquivo principal LaTeX
 - `compile_latex.bat` ← Script Windows para compilar
 - `compile_latex.sh` ← Script Linux para compilar  
 - `Dockerfile.latex` ← Docker para LaTeX

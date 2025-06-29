@@ -1,25 +1,12 @@
-# 📄 ARTIGOS CIENTÍFICOS GERADOS - VERSÕES COMPLETAS
+# 📄 ARTIGO CIENTÍFICO GERADO - VERSÃO COMPLETA
 
-## ✅ **ARQUIVOS CRIADOS**
+## ✅ **ARQUIVO CRIADO**
 
-### **📊 Artigos com TODOS os Gráficos:**
-- `artigo_ieee_latex.pdf` ← **VERSÃO EM INGLÊS** (5 páginas, 2.6MB)
+### **📊 Artigo com TODOS os Gráficos:**
 - `artigo_ieee_portugues.pdf` ← **VERSÃO EM PORTUGUÊS** (4 páginas, 2.6MB)
 
-### **📁 Arquivos Fonte:**
-- `artigo_ieee_latex.tex` ← Código LaTeX em inglês
+### **📁 Arquivo Fonte:**
 - `artigo_ieee_portugues.tex` ← Código LaTeX em português
-
-## 🎯 **CARACTERÍSTICAS DAS VERSÕES**
-
-### **🇺🇸 VERSÃO EM INGLÊS (`artigo_ieee_latex.pdf`)**
-- ✅ **Abstract em inglês** 
-- ✅ **Conteúdo completo em inglês**
-- ✅ **8 gráficos incluídos** (todos da pasta `plots/`)
-- ✅ **Formato IEEE Conference**
-- ✅ **5 páginas completas**
-- ✅ **Pseudocódigos dos algoritmos**
-- ✅ **Análise estatística detalhada**
 
 ### **🇧🇷 VERSÃO EM PORTUGUÊS (`artigo_ieee_portugues.pdf`)**
 - ✅ **Resumo em português** (primeira seção)
@@ -28,13 +15,13 @@
 - ✅ **Conteúdo completo em português**
 - ✅ **8 gráficos incluídos** (todos da pasta `plots/`)
 - ✅ **Formato IEEE Conference**
-- ✅ **5 páginas completas**
+- ✅ **4 páginas completas**
 - ✅ **Pseudocódigos dos algoritmos**
 - ✅ **Análise estatística detalhada**
 
-## 📊 **GRÁFICOS INCLUÍDOS NOS ARTIGOS**
+## 📊 **GRÁFICOS INCLUÍDOS NO ARTIGO**
 
-Ambas as versões incluem **TODOS** os 8 gráficos gerados pelo projeto:
+O artigo inclui **TODOS** os 8 gráficos gerados pelo projeto:
 
 1. **`boxplots_distribuicao.png`** → Box plots por algoritmo, tamanho e distribuição
 2. **`comparativo_barras.png`** → Comparação de barras entre algoritmos  
@@ -56,19 +43,20 @@ docker-compose run --rm latex pdflatex -interaction=nonstopmode artigo_ieee_late
 docker-compose run --rm latex pdflatex -interaction=nonstopmode artigo_ieee_portugues.tex
 ```
 
-## 📋 **ESTRUTURA COMPLETA DOS ARTIGOS**
+## 📋 **ESTRUTURA COMPLETA DO ARTIGO**
 
 ### **🎯 Seções Principais:**
-1. **Abstract** (inglês em ambos)
-2. **Keywords** 
-3. **Introdução**
-4. **Trabalhos Relacionados**
-5. **Metodologia** (design experimental 2³)
-6. **Implementação** (pseudocódigos)
-7. **Resultados e Análise** (com TODOS os gráficos)
-8. **Discussão** (implicações práticas)
-9. **Conclusão** (contribuições e trabalhos futuros)
-10. **Referências** (10 referências formato IEEE)
+1. **Resumo** (português)
+2. **Abstract** (inglês)
+3. **Palavras-chave** (português e inglês)
+4. **Introdução**
+5. **Trabalhos Relacionados**
+6. **Metodologia** (design experimental 2³)
+7. **Implementação** (pseudocódigos)
+8. **Resultados e Análise** (com TODOS os gráficos)
+9. **Discussão** (implicações práticas)
+10. **Conclusão** (contribuições e trabalhos futuros)
+11. **Referências** (referências reais formato IEEE)
 
 ### **📈 Resultados Destacados:**
 - **Quick Sort 22.6% mais rápido** em distribuições exponenciais
@@ -79,7 +67,7 @@ docker-compose run --rm latex pdflatex -interaction=nonstopmode artigo_ieee_port
 
 ## 🎓 **PRONTO PARA SUBMISSÃO**
 
-Ambos os artigos estão **prontos para submissão acadêmica**:
+O artigo está **pronto para submissão acadêmica**:
 
 - ✅ **Formato IEEE Conference rigoroso**
 - ✅ **Figuras numeradas e referenciadas**
@@ -94,21 +82,29 @@ Para submeter, apenas substitua:
 - **Nome:** `Pedro Henrique dos Santos Barbosa` → Seu nome
 - **Email:** `d2022013760@unifei.edu.br` → Seu email
 
-## 📊 **MÉTRICAS DOS ARQUIVOS**
+## 📊 **MÉTRICAS DO ARQUIVO**
 
 | Versão | Páginas | Tamanho | Gráficos | Idioma | Resumo |
 |--------|---------|---------|----------|---------|---------|
-| Inglês | 5 | 2.6MB | 8 | 🇺🇸 English | Abstract (EN) |
-| Português | 5 | 2.6MB | 8 | 🇧🇷 Português | Resumo (PT) + Abstract (EN) |
+| Português | 4 | 2.6MB | 8 | 🇧🇷 Português | Resumo (PT) + Abstract (EN) |
+
+## 🚀 **COMO COMPILAR**
+
+```bash
+# Usando docker-compose
+.\run.bat latex
+
+# Ou diretamente
+docker-compose run --rm latex pdflatex -interaction=nonstopmode artigo_ieee_portugues.tex
+```
 
 ## 🎯 **PRÓXIMOS PASSOS**
 
-1. **Revisar** os PDFs gerados
+1. **Revisar** o PDF gerado
 2. **Personalizar** nome e email se necessário
-3. **Escolher a versão** apropriada para submissão
-4. **Submeter** conforme instruções do professor
-5. **Celebrar** o trabalho completo! 🎉
+3. **Submeter** conforme instruções do professor
+4. **Celebrar** o trabalho completo! 🎉
 
 ---
 
-**🏆 PARABÉNS! Você agora tem dois artigos científicos completos e profissionais no formato IEEE, com todos os gráficos e análises do seu projeto!** 
+**🏆 PARABÉNS! Você agora tem um artigo científico completo e profissional no formato IEEE, com todos os gráficos e análises do seu projeto!** 
