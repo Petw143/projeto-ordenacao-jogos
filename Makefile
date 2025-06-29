@@ -53,6 +53,20 @@ setup:
 	docker-compose run --rm test
 	@echo "🎉 Setup concluído! Use 'make run' para executar o experimento."
 
+# Compilar artigo LaTeX para PDF
+latex:
+	@echo "📊 Compilando artigo LaTeX para PDF..."
+	@if [ ! -f "artigo_ieee_latex.tex" ]; then \
+		echo "❌ Arquivo artigo_ieee_latex.tex não encontrado!"; \
+		exit 1; \
+	fi
+	docker-compose run --rm latex
+	@if [ -f "artigo_ieee_latex.pdf" ]; then \
+		echo "✅ PDF gerado com sucesso: artigo_ieee_latex.pdf"; \
+	else \
+		echo "❌ Erro na compilação. Verifique o arquivo .log"; \
+	fi
+
 # Ajuda
 help:
 	@echo "🎮 PROJETO ORDENAÇÃO JOGOS - Comandos Docker"
@@ -60,6 +74,7 @@ help:
 	@echo "make build  - Construir imagem Docker"
 	@echo "make test   - Testar se sistema funciona"
 	@echo "make run    - Executar experimento completo"
+	@echo "make latex  - Compilar artigo LaTeX para PDF"
 	@echo "make shell  - Abrir shell interativo"
 	@echo "make logs   - Ver logs em tempo real"
 	@echo "make clean  - Limpar containers"

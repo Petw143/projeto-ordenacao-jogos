@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-06-25T06:39:20.808551",
+  "timestamp": "2025-06-29T21:32:11.948735",
   "total_experimentos": 8,
   "algoritmos_testados": [
     "merge_sort",
@@ -15,46 +15,46 @@
   ],
   "estatisticas_por_algoritmo": {
     "merge_sort": {
-      "tempo_medio_geral": 0.37733726094957093,
-      "tempo_desvio_geral": 0.36884424971335733,
-      "memoria_media_geral": 0.71103515625,
-      "throughput_medio_geral": 157961.69302818077
+      "tempo_medio_geral": 0.39265578627502007,
+      "tempo_desvio_geral": 0.38200341453971226,
+      "memoria_media_geral": 1.45849609375,
+      "throughput_medio_geral": 150292.89408821383
     },
     "quick_sort": {
-      "tempo_medio_geral": 0.5091729103249236,
-      "tempo_desvio_geral": 0.5428815924706422,
-      "memoria_media_geral": 0.0,
-      "throughput_medio_geral": 148585.55586800308
+      "tempo_medio_geral": 0.5350238166250506,
+      "tempo_desvio_geral": 0.577942220688194,
+      "memoria_media_geral": 0.01591796875,
+      "throughput_medio_geral": 145127.3945469494
     }
   },
   "anova": {
-    "f_statistic": 0.1613926643341943,
-    "p_value": 0.7017960564324307,
+    "f_statistic": 0.16892523879674295,
+    "p_value": 0.6953447953229688,
     "significativo": "False"
   },
   "matriz_correlacao": {
     "fator_a_tamanho": {
       "fator_a_tamanho": 1.0,
-      "tempo_medio": 0.9519094833747692,
-      "memoria_media": 0.5738151908484576,
-      "throughput_medio": -0.8276974227394185
+      "tempo_medio": 0.9437683607312691,
+      "memoria_media": 0.5795263163772346,
+      "throughput_medio": -0.8185047269800442
     },
     "tempo_medio": {
-      "fator_a_tamanho": 0.9519094833747692,
+      "fator_a_tamanho": 0.9437683607312691,
       "tempo_medio": 1.0,
-      "memoria_media": 0.3592883228454722,
-      "throughput_medio": -0.9330044108944995
+      "memoria_media": 0.35973274254974497,
+      "throughput_medio": -0.93362696981429
     },
     "memoria_media": {
-      "fator_a_tamanho": 0.5738151908484576,
-      "tempo_medio": 0.3592883228454722,
+      "fator_a_tamanho": 0.5795263163772346,
+      "tempo_medio": 0.35973274254974497,
       "memoria_media": 1.0,
-      "throughput_medio": -0.16746824981122996
+      "throughput_medio": -0.17878645232968493
     },
     "throughput_medio": {
-      "fator_a_tamanho": -0.8276974227394185,
-      "tempo_medio": -0.9330044108944995,
-      "memoria_media": -0.16746824981122996,
+      "fator_a_tamanho": -0.8185047269800442,
+      "tempo_medio": -0.93362696981429,
+      "memoria_media": -0.17878645232968493,
       "throughput_medio": 1.0
     }
   }
