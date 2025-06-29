@@ -4,10 +4,10 @@ FROM texlive/texlive:latest
 WORKDIR /app
 
 # Copiar arquivo LaTeX
-COPY artigo_ieee_latex.tex .
+COPY artigo_ieee_portugues.tex .
 
 # Instalar pacotes necessários (se não estiverem disponíveis)
 RUN tlmgr update --self && tlmgr install IEEEtran
 
 # Compilar o documento
-CMD ["pdflatex", "-interaction=nonstopmode", "artigo_ieee_latex.tex"]
+CMD ["pdflatex", "-interaction=nonstopmode", "artigo_ieee_portugues.tex"]
