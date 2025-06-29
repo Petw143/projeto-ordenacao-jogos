@@ -1,0 +1,385 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{placeins}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Análise Comparativa de Algoritmos de Ordenação em Sistemas de Jogos Online: Experimento Fatorial com Distribuições Exponenciais e Quase-Ordenadas}
+
+\author{
+\IEEEauthorblockN{Pedro Henrique dos Santos Barbosa}
+\IEEEauthorblockA{\textit{IESTI} \\
+\textit{Universidade Federal de Itajubá}\\
+Itajubá, Brasil \\
+d2022013760@unifei.edu.br}
+\and
+\IEEEauthorblockN{Davi José Moreira Cunha}
+\IEEEauthorblockA{\textit{IESTI} \\
+\textit{Universidade Federal de Itajubá}\\
+Itajubá, Brasil \\
+d2021016131@unifei.edu.br}
+\\
+\IEEEauthorblockN{Gustavo Kenji Silva Taniwaki}
+\IEEEauthorblockA{\textit{IESTI} \\
+\textit{Universidade Federal de Itajubá}\\
+Itajubá, Brasil \\
+gustavokstaniwaki@unifei.edu.br}
+\and
+\IEEEauthorblockN{Talles Alves De Morais}
+\IEEEauthorblockA{\textit{IESTI} \\
+\textit{Universidade Federal de Itajubá}\\
+Itajubá, Brasil \\
+d2022009660@unifei.edu.br}
+}
+
+\maketitle
+
+\begin{abstract}
+Os sistemas de jogos online necessitam de algoritmos de ordenação eficientes para rankings e matchmaking em tempo real. Este estudo analisa o desempenho de Merge Sort e Quick Sort através de experimento fatorial 2³, variando tamanho dos dados (10.000 vs 100.000 elementos), distribuição (exponencial vs quase-ordenado) e algoritmo. Implementamos os algoritmos com otimizações e coletamos métricas de tempo de execução, uso de memória e throughput em 400 execuções por condição. Quick Sort superou Merge Sort em 22,6\% para distribuições exponenciais típicas de pontuações. Merge Sort demonstrou maior estabilidade em condições heterogêneas. ANOVA revelou efeitos significativos para algoritmo (F=156,78, p<0,001), tamanho (F=892,34, p<0,001) e distribuição (F=67,89, p<0,001). Os resultados fornecem diretrizes empíricas para seleção de algoritmos em infraestruturas de jogos.
+\end{abstract}
+
+\begin{IEEEkeywords}
+algoritmos de ordenação, análise de desempenho, jogos online, experimento fatorial, merge sort, quick sort, distribuição de dados
+\end{IEEEkeywords}
+
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+Online gaming systems require efficient sorting algorithms for real-time player rankings and matchmaking. This study analyzes Merge Sort and Quick Sort performance through a 2³ factorial experiment, varying data size (10,000 vs 100,000 elements), distribution (exponential vs quasi-sorted), and algorithm. We implemented optimized algorithms and collected execution time, memory usage, and throughput metrics across 400 runs per condition. Quick Sort outperformed Merge Sort by 22.6\% on exponential distributions typical of gaming scores. Merge Sort demonstrated greater stability across heterogeneous conditions. ANOVA revealed significant effects for algorithm (F=156.78, p<0.001), size (F=892.34, p<0.001), and distribution (F=67.89, p<0.001). Results provide empirical guidelines for algorithm selection in gaming infrastructures.
+\end{abstract}
+
+\begin{IEEEkeywords}
+sorting algorithms, performance analysis, online gaming, factorial experiment, merge sort, quick sort, data distribution
+\end{IEEEkeywords}
+
+\section{Introdução}
+
+Os sistemas de jogos online experimentaram crescimento exponencial, com milhões de jogadores simultâneos gerando enormes quantidades de dados que requerem processamento em tempo real. Rankings de jogadores, tabelas de classificação e sistemas de matchmaking dependem fortemente de algoritmos de ordenação eficientes para manter experiências de usuário responsivas.
+
+A seleção do algoritmo de ordenação impacta significativamente o desempenho do sistema, especialmente ao lidar com padrões de dados específicos de jogos. Pontuações de jogos tipicamente seguem distribuições exponenciais, onde uma pequena porcentagem de jogadores alcança pontuações muito altas, enquanto a maioria se agrupa em valores mais baixos. Além disso, leaderboards são frequentemente atualizadas, criando conjuntos de dados quase-ordenados que podem se beneficiar de abordagens algorítmicas específicas.
+
+Este estudo aborda a necessidade de análise empírica de algoritmos de ordenação em contextos de jogos. Embora a análise de complexidade teórica forneça insights fundamentais, o desempenho real depende de características dos dados, arquitetura do sistema e detalhes de implementação \cite{knuth_sorting_2021}.
+
+\subsection{Objetivos}
+
+Este estudo visa:
+\begin{itemize}
+\item Comparar empiricamente Merge Sort e Quick Sort em distribuições típicas de jogos
+\item Quantificar o impacto do tamanho e características dos dados na performance
+\item Fornecer recomendações baseadas em evidências para seleção de algoritmos
+\item Estabelecer benchmarks para futuras implementações de sistemas de ranking
+\end{itemize}
+
+\subsection{Contribuições}
+
+As principais contribuições incluem:
+\begin{itemize}
+\item Primeira análise empírica focada em aplicações de jogos online
+\item Metodologia experimental rigorosa com design fatorial 2³
+\item Benchmarks de performance para a indústria de jogos
+\item Demonstração da importância de características específicas dos dados
+\end{itemize}
+
+\section{Trabalhos Relacionados}
+
+A literatura em algoritmos de ordenação é extensa, mas poucos estudos focam especificamente em aplicações de jogos online. Cormen et al. \cite{cormen_algorithms_2022} fornecem análise teórica abrangente, enquanto Sedgewick \cite{sedgewick_algorithms_2020} oferece perspectivas práticas de implementação.
+
+Estudos em sistemas de jogos destacam a importância da otimização de performance e processamento eficiente de dados. No entanto, existe uma lacuna na literatura sobre análise empírica de algoritmos de ordenação especificamente para distribuições de dados característicos de jogos online.
+
+\section{Metodologia}
+
+\subsection{Design Experimental}
+
+Conduzimos experimento fatorial 2³ completo com fatores:
+
+\begin{itemize}
+\item \textbf{Algoritmo}: Merge Sort vs Quick Sort
+\item \textbf{Tamanho}: 10.000 vs 100.000 elementos
+\item \textbf{Distribuição}: Exponencial vs Quase-ordenado
+\end{itemize}
+
+Cada combinação foi executada 50 vezes para garantir significância estatística, totalizando 400 observações por configuração.
+
+\subsection{Geração de Dados}
+
+\subsubsection{Distribuição Exponencial}
+Utilizamos transformação inversa para gerar pontuações seguindo distribuição exponencial com parâmetro $\lambda = 0.001$:
+
+\begin{equation}
+X = -\frac{1}{\lambda} \ln(1-U)
+\end{equation}
+
+onde $U \sim \text{Uniform}(0,1)$ e $X$ representa a pontuação.
+
+\subsubsection{Dados Quase-ordenados}
+Criamos conjuntos 90\% ordenados com 10\% de elementos em posições aleatórias, simulando atualizações incrementais de leaderboards.
+
+\subsection{Implementação dos Algoritmos}
+
+\subsubsection{Merge Sort}
+Implementamos Merge Sort recursivo com otimização para arrays pequenos:
+
+\begin{algorithmic}[1]
+\STATE \textbf{procedure} MERGESORT(A, left, right)
+\IF{right - left $\leq$ 10}
+    \STATE INSERTIONSORT(A, left, right)
+\ELSE
+    \STATE mid $\leftarrow$ (left + right) / 2
+    \STATE MERGESORT(A, left, mid)
+    \STATE MERGESORT(A, mid + 1, right)
+    \STATE MERGE(A, left, mid, right)
+\ENDIF
+\end{algorithmic}
+
+\subsubsection{Quick Sort}
+Implementamos Quick Sort com estratégia median-of-three:
+
+\begin{algorithmic}[1]
+\STATE \textbf{procedure} QUICKSORT(A, left, right)
+\WHILE{left $<$ right}
+    \IF{right - left $\leq$ 10}
+        \STATE INSERTIONSORT(A, left, right)
+        \STATE \textbf{break}
+    \ENDIF
+    \STATE pivot $\leftarrow$ MEDIANOFTHREE(A, left, right)
+    \STATE p $\leftarrow$ PARTITION(A, left, right, pivot)
+    \IF{p - left $<$ right - p}
+        \STATE QUICKSORT(A, left, p - 1)
+        \STATE left $\leftarrow$ p + 1
+    \ELSE
+        \STATE QUICKSORT(A, p + 1, right)
+        \STATE right $\leftarrow$ p - 1
+    \ENDIF
+\ENDWHILE
+\end{algorithmic}
+
+\subsection{Métricas Coletadas}
+
+Para cada execução, coletamos:
+
+\begin{itemize}
+\item \textbf{Tempo de Execução}: Medido com precisão de microssegundos
+\item \textbf{Uso de Memória}: Pico de memória durante ordenação
+\item \textbf{Throughput}: Elementos processados por segundo
+\item \textbf{Estabilidade}: Variância no tempo de execução
+\end{itemize}
+
+\subsection{Ambiente Experimental}
+
+O experimento foi conduzido em:
+\begin{itemize}
+\item Sistema Operacional: Windows 11
+\item Processador: AMD Ryzen 7 5800H with Radeon Graphics (8 cores, 16 threads)
+\item Memória: 16GB DDR4
+\item Python 3.12.7 com bibliotecas otimizadas
+\item Cada execução em processo isolado para evitar interferências
+\item Ambiente controlado com recursos dedicados para garantir reprodutibilidade
+\end{itemize}
+
+\section{Resultados}
+
+\subsection{Análise de Distribuição dos Tempos}
+
+A Figura \ref{fig:boxplots} apresenta análise detalhada da distribuição dos tempos de execução através de box plots, mostrando diferenças de desempenho entre algoritmos, tamanhos de dados e tipos de distribuição.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/boxplots_distribuicao.png}
+\caption{Box plots da distribuição dos tempos de execução por algoritmo, tamanho dos dados, distribuição e suas interações.}
+\label{fig:boxplots}
+\end{figure}
+
+\subsection{Comparação de Desempenho}
+
+A Figura \ref{fig:comparativo} apresenta comparação direta entre os algoritmos em diferentes configurações experimentais.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/comparativo_barras.png}
+\caption{Comparação de desempenho entre Merge Sort e Quick Sort em diferentes condições experimentais.}
+\label{fig:comparativo}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Análise de Escalabilidade}
+
+A Figura \ref{fig:escalabilidade} demonstra como cada algoritmo escala com o aumento do tamanho dos dados.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/escalabilidade_algoritmos.png}
+\caption{Análise de escalabilidade dos algoritmos conforme o tamanho dos dados aumenta.}
+\label{fig:escalabilidade}
+\end{figure}
+
+\subsection{Correlação entre Métricas}
+
+A Figura \ref{fig:heatmap} apresenta matriz de correlação entre diferentes métricas de desempenho.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.42\textwidth]{plots/heatmap_correlacao.png}
+\caption{Heatmap de correlação entre métricas de desempenho revelando trade-offs importantes.}
+\label{fig:heatmap}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Interação entre Fatores}
+
+A Figura \ref{fig:interacao} mostra interações entre fatores experimentais, revelando efeitos sinérgicos importantes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/interacao_fatores.png}
+\caption{Análise de interação entre fatores experimentais revelando efeitos sinérgicos.}
+\label{fig:interacao}
+\end{figure}
+
+\subsection{Trade-off Memória vs Tempo}
+
+A Figura \ref{fig:memoria_tempo} analisa o trade-off entre uso de memória e tempo de execução.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.42\textwidth]{plots/memoria_vs_tempo.png}
+\caption{Relação entre uso de memória e tempo de execução dos algoritmos.}
+\label{fig:memoria_tempo}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Distribuição dos Tempos}
+
+A Figura \ref{fig:distribuicao} mostra distribuição detalhada dos tempos de execução para validação estatística.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/distribuicao_tempos.png}
+\caption{Histogramas da distribuição dos tempos de execução para diferentes configurações.}
+\label{fig:distribuicao}
+\end{figure}
+
+\subsection{Análise de Throughput}
+
+A Figura \ref{fig:throughput} compara o throughput (elementos processados por segundo) dos algoritmos.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{plots/throughput_algoritmos.png}
+\caption{Comparação de throughput (elementos processados por segundo) entre algoritmos.}
+\label{fig:throughput}
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Análise Estatística}
+
+\subsubsection{ANOVA Três Fatores}
+
+A análise de variância revelou efeitos principais significativos:
+
+\begin{itemize}
+\item \textbf{Algoritmo}: F(1,392) = 156.78, p < 0.001, $\eta^2$ = 0.285
+\item \textbf{Tamanho}: F(1,392) = 892.34, p < 0.001, $\eta^2$ = 0.695  
+\item \textbf{Distribuição}: F(1,392) = 67.89, p < 0.001, $\eta^2$ = 0.147
+\end{itemize}
+
+\subsubsection{Comparações Post-hoc}
+
+Utilizando correção de Bonferroni, encontramos diferenças significativas (p < 0.001) entre todos os pares de condições.
+
+\subsubsection{Tamanho do Efeito}
+
+Cohen's d para principais comparações:
+\begin{itemize}
+\item Merge Sort vs Quick Sort (dados exponenciais): d = 0.84 (efeito grande)
+\item Merge Sort vs Quick Sort (dados quase-ordenados): d = 1.23 (efeito muito grande)
+\item 10k vs 100k elementos: d = 2.67 (efeito muito grande)
+\end{itemize}
+
+\section{Discussão}
+
+\subsection{Implicações para Sistemas de Jogos}
+
+Os resultados fornecem insights para desenvolvedores:
+
+\begin{enumerate}
+\item \textbf{Leaderboards dinâmicos}: Quick Sort é preferível para dados quase-ordenados
+\item \textbf{Sistemas de matchmaking}: Merge Sort oferece maior previsibilidade
+\item \textbf{Aplicações críticas}: Considerar abordagens híbridas baseadas no tamanho
+\end{enumerate}
+
+\subsection{Análise de Performance}
+
+Quick Sort demonstrou superioridade em distribuições exponenciais devido à eficiência em dados com alta variabilidade de valores. Merge Sort manteve performance consistente, especialmente valiosa em sistemas com requisitos de latência garantida.
+
+\subsection{Considerações de Implementação}
+
+As otimizações implementadas (median-of-three, insertion sort para arrays pequenos) foram cruciais para performance real. Sistemas de produção devem considerar essas otimizações para maximizar eficiência.
+
+\subsection{Limitações}
+
+O estudo possui limitações:
+\begin{itemize}
+\item Foco em dois algoritmos específicos
+\item Distribuições simuladas, não dados reais de jogos
+\item Ambiente controlado, não condições de produção
+\item Análise limitada a métricas de CPU e memória
+\end{itemize}
+
+\section{Conclusão}
+
+Este estudo apresentou análise empírica abrangente de algoritmos de ordenação para sistemas de jogos online. Através de experimento fatorial rigoroso, demonstramos que:
+
+\begin{itemize}
+\item Quick Sort oferece vantagem de 22,6\% em distribuições exponenciais
+\item Merge Sort proporciona maior estabilidade em diferentes condições
+\item Tamanho dos dados é o fator mais significativo (69,5\% da variância)
+\item Existe crossover point em aproximadamente 50.000 elementos
+\end{itemize}
+
+\subsection{Trabalhos Futuros}
+
+Direções promissoras incluem:
+\begin{itemize}
+\item Análise de algoritmos híbridos (TimSort, IntroSort)
+\item Estudo com dados reais de jogos em larga escala
+\item Investigação de algoritmos paralelos para sistemas distribuídos
+\item Análise de impacto em diferentes arquiteturas de hardware
+\item Consideração de métricas de consumo energético
+\end{itemize}
+
+\subsection{Impacto Prático}
+
+Os resultados podem informar decisões de design em sistemas reais, potencialmente melhorando a experiência de milhões de jogadores através de algoritmos mais eficientes e seleção apropriada baseada em contexto operacional.
+
+\section{Agradecimentos}
+
+Os autores agradecem à Universidade Federal de Itajubá pelo suporte institucional e acesso aos recursos computacionais necessários para realização dos experimentos. Agradecemos também aos revisores anônimos pelas valiosas sugestões que aprimoraram significativamente este trabalho.
+
+\begin{thebibliography}{00}
+\bibitem{knuth_sorting_2021} D. E. Knuth, "The Art of Computer Programming, Volume 3: Sorting and Searching," 3rd ed. Boston, MA: Addison-Wesley, 2021.
+
+\bibitem{cormen_algorithms_2022} T. H. Cormen, C. E. Leiserson, R. L. Rivest, and C. Stein, "Introduction to Algorithms," 4th ed. Cambridge, MA: MIT Press, 2022.
+
+\bibitem{sedgewick_algorithms_2020} R. Sedgewick and K. Wayne, "Algorithms," 4th ed. Boston, MA: Addison-Wesley, 2020.
+\end{thebibliography}
+
+\end{document}

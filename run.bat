@@ -45,6 +45,23 @@ if "%1"=="setup" (
     goto end
 )
 
+if "%1"=="latex" (
+    echo 📊 Compilando artigo LaTeX para PDF...
+    if not exist "artigo_ieee_latex.tex" (
+        echo ❌ Arquivo artigo_ieee_latex.tex não encontrado!
+        goto end
+    )
+    docker-compose run --rm latex
+    if exist "artigo_ieee_latex.pdf" (
+        echo ✅ PDF gerado com sucesso: artigo_ieee_latex.pdf
+        echo 🚀 Abrindo PDF...
+        start artigo_ieee_latex.pdf
+    ) else (
+        echo ❌ Erro na compilação. Verifique o arquivo .log
+    )
+    goto end
+)
+
 if "%1"=="quick" (
     echo ⚡ Teste rápido...
     docker-compose build
@@ -58,6 +75,7 @@ echo ═════════════════════════
 echo run.bat build  - Construir imagem Docker
 echo run.bat test   - Testar se sistema funciona
 echo run.bat run    - Executar experimento completo
+echo run.bat latex  - Compilar artigo LaTeX para PDF
 echo run.bat shell  - Abrir shell interativo
 echo run.bat clean  - Limpar containers
 echo run.bat quick  - Build + teste rápido
@@ -67,5 +85,6 @@ echo 💡 COMO USAR:
 echo 1. run.bat setup    (primeira vez)
 echo 2. run.bat test     (verificar se funciona)
 echo 3. run.bat run      (executar experimento)
+echo 4. run.bat latex    (gerar PDF do artigo)
 
 :end
