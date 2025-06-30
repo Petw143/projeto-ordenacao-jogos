@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.29)  29 JUN 2025 22:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.29)  30 JUN 2025 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -473,71 +473,118 @@ Underfull \hbox (badness 2418) in paragraph at lines 95--96
  []
 
 
-
-
-Underfull \hbox (badness 3838) in paragraph at lines 187--188
-[]\OT1/ptm/m/n/10 Processador: AMD Ry-zen 7 5800H with Ra-deon
+Underfull \hbox (badness 5939) in paragraph at lines 116--117
+[]\OT1/ptm/m/n/10 O ex-pe-ri-mento aten-deu in-te-gral-mente aos re-qui-si-tos
  []
 
-<plots/boxplots_distribuicao.png, id=11, 1149.093pt x 859.2903pt>
-File: plots/boxplots_distribuicao.png Graphic file (type png)
-<use plots/boxplots_distribuicao.png>
-Package pdftex.def Info: plots/boxplots_distribuicao.png  used on input line 20
-2.
-(pdftex.def)             Requested size: 232.19843pt x 173.6382pt.
 
-Underfull \vbox (badness 2990) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
+[]\OT1/ptm/b/n/10 Justificativa Me-to-dol[]ogica: \OT1/ptm/m/n/10 A compara[][]
+ao en-tre
+ []
+
+
+Underfull \hbox (badness 6559) in paragraph at lines 145--146
+\OT1/ptm/m/n/10 transforma[][]ao in-versa para ge-rar pontua[][]oes se-guindo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+\OT1/ptm/m/n/10 im-ple-men-ta-mos con-vers[]ao de n[]umeros uni-for-mes em
+ []
+
+
+Underfull \hbox (badness 8075) in paragraph at lines 162--163
+\OT1/ptm/m/n/10 distribui[][]ao que fa-vo-rece va-lo-res me-no-res, si-mu-lando
+
+ []
 
 
 
 [2]
-<plots/comparativo_barras.png, id=19, 1076.823pt x 430.4883pt>
+Underfull \hbox (badness 6032) in paragraph at lines 229--230
+[]\OT1/ptm/b/n/10 Experimento Fa-to-rial 2\TS1/ptm/b/n/10 ≥\OT1/ptm/m/n/10 : Im
+-ple-men-ta-mos as 8
+ []
+
+
+Underfull \hbox (badness 3838) in paragraph at lines 252--253
+[]\OT1/ptm/m/n/10 Processador: AMD Ry-zen 7 5800H with Ra-deon
+ []
+
+
+
+
+Overfull \hbox (12.47725pt too wide) in paragraph at lines 284--305
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1533) in paragraph at lines 307--308
+\OT1/ptm/m/n/10 Sort su-pera Quick Sort sig-ni-fi-ca-ti-va-mente, es-pe-ci-al-m
+ente
+ []
+
+<plots/boxplots_distribuicao.png, id=19, 1149.093pt x 859.2903pt>
+File: plots/boxplots_distribuicao.png Graphic file (type png)
+<use plots/boxplots_distribuicao.png>
+Package pdftex.def Info: plots/boxplots_distribuicao.png  used on input line 31
+5.
+(pdftex.def)             Requested size: 232.19843pt x 173.6382pt.
+
+
+[3]
+Underfull \hbox (badness 7273) in paragraph at lines 332--333
+[]\OT1/ptm/b/n/10 Gr[]aficos de intera[][]ao\OT1/ptm/m/n/10 : Visualiza[][]ao d
+os efei-tos
+ []
+
+<plots/comparativo_barras.png, id=24, 1075.8594pt x 430.7292pt>
 File: plots/comparativo_barras.png Graphic file (type png)
 <use plots/comparativo_barras.png>
-Package pdftex.def Info: plots/comparativo_barras.png  used on input line 213.
-(pdftex.def)             Requested size: 232.19843pt x 92.8225pt.
-<plots/escalabilidade_algoritmos.png, id=20, 857.8449pt x 566.3559pt>
+Package pdftex.def Info: plots/comparativo_barras.png  used on input line 341.
+(pdftex.def)             Requested size: 232.19843pt x 92.95987pt.
+<plots/escalabilidade_algoritmos.png, id=25, 857.8449pt x 566.3559pt>
 File: plots/escalabilidade_algoritmos.png Graphic file (type png)
 <use plots/escalabilidade_algoritmos.png>
 Package pdftex.def Info: plots/escalabilidade_algoritmos.png  used on input lin
-e 226.
+e 354.
 (pdftex.def)             Requested size: 232.19843pt x 153.29837pt.
-<plots/heatmap_correlacao.png, id=21, 638.385pt x 570.4512pt>
+
+
+<plots/heatmap_correlacao.png, id=26, 638.385pt x 570.4512pt>
 File: plots/heatmap_correlacao.png Graphic file (type png)
 <use plots/heatmap_correlacao.png>
-Package pdftex.def Info: plots/heatmap_correlacao.png  used on input line 237.
+Package pdftex.def Info: plots/heatmap_correlacao.png  used on input line 365.
 (pdftex.def)             Requested size: 216.71906pt x 193.65489pt.
-
-
-<plots/interacao_fatores.png, id=22, 1149.093pt x 425.6703pt>
+<plots/interacao_fatores.png, id=27, 1149.093pt x 425.6703pt>
 File: plots/interacao_fatores.png Graphic file (type png)
 <use plots/interacao_fatores.png>
-Package pdftex.def Info: plots/interacao_fatores.png  used on input line 250.
+Package pdftex.def Info: plots/interacao_fatores.png  used on input line 378.
 (pdftex.def)             Requested size: 232.19843pt x 86.01588pt.
-<plots/memoria_vs_tempo.png, id=23, 715.473pt x 570.933pt>
+<plots/memoria_vs_tempo.png, id=28, 715.473pt x 570.933pt>
 File: plots/memoria_vs_tempo.png Graphic file (type png)
 <use plots/memoria_vs_tempo.png>
-Package pdftex.def Info: plots/memoria_vs_tempo.png  used on input line 261.
+Package pdftex.def Info: plots/memoria_vs_tempo.png  used on input line 389.
 (pdftex.def)             Requested size: 216.71906pt x 172.93645pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-
-[3 <./plots/boxplots_distribuicao.png> <./plots/comparativo_barras.png> <./plot
+[4 <./plots/boxplots_distribuicao.png> <./plots/comparativo_barras.png> <./plot
 s/escalabilidade_algoritmos.png> <./plots/heatmap_correlacao.png> <./plots/inte
 racao_fatores.png>]
-<plots/distribuicao_tempos.png, id=32, 1004.553pt x 714.7503pt>
+<plots/distribuicao_tempos.png, id=37, 1004.553pt x 714.7503pt>
 File: plots/distribuicao_tempos.png Graphic file (type png)
 <use plots/distribuicao_tempos.png>
-Package pdftex.def Info: plots/distribuicao_tempos.png  used on input line 274.
+Package pdftex.def Info: plots/distribuicao_tempos.png  used on input line 402.
 
 (pdftex.def)             Requested size: 232.19843pt x 165.20708pt.
-<plots/throughput_algoritmos.png, id=33, 858.8085pt x 570.933pt>
+<plots/throughput_algoritmos.png, id=38, 858.8085pt x 570.933pt>
 File: plots/throughput_algoritmos.png Graphic file (type png)
 <use plots/throughput_algoritmos.png>
-Package pdftex.def Info: plots/throughput_algoritmos.png  used on input line 28
-5.
+Package pdftex.def Info: plots/throughput_algoritmos.png  used on input line 41
+3.
 (pdftex.def)             Requested size: 232.19843pt x 154.36304pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -545,21 +592,57 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-Underfull \hbox (badness 7221) in paragraph at lines 310--312
- \OT1/ptm/m/it/10 3) Ta-ma-nho do Efeito: [][] \OT1/ptm/m/n/10 Cohen's d para p
+Underfull \hbox (badness 4048) in paragraph at lines 432--433
+[]\OT1/ptm/b/n/10 Estat[]^^Pstica F: \OT1/ptm/m/n/10 A raz[]ao F = (Vari[]ancia
+ en-tre gru-
+ []
+
+
+Underfull \hbox (badness 7221) in paragraph at lines 459--461
+ \OT1/ptm/m/it/10 4) Ta-ma-nho do Efeito: [][] \OT1/ptm/m/n/10 Cohen's d para p
 rin-ci-pais
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 335--336
+
+[5 <./plots/memoria_vs_tempo.png> <./plots/distribuicao_tempos.png> <./plots/th
+roughput_algoritmos.png>]
+Overfull \hbox (10.25484pt too wide) in paragraph at lines 514--535
+ [][] 
+ []
+
+
+
+
+Underfull \hbox (badness 8189) in paragraph at lines 557--559
+[]\OT1/ptm/b/n/10 3. Intera[][]ao Tri-pla (Al-go-ritmo \TS1/ptm/b/n/10 ÷ \OT1/p
+tm/b/n/10 Ta-ma-nho \TS1/ptm/b/n/10 ÷
+ []
+
+
+Underfull \hbox (badness 2913) in paragraph at lines 560--561
+[]\OT1/ptm/b/n/10 Melhor cen[]ario\OT1/ptm/m/n/10 : Quick Sort + 10k ele-men-to
+s +
+ []
+
+
+Underfull \hbox (badness 1803) in paragraph at lines 582--583
 []\OT1/ptm/m/n/10 As otimiza[][]oes im-ple-men-ta-das (median-of-three, in-ser-
 
  []
 
 
 
-[4 <./plots/memoria_vs_tempo.png> <./plots/distribuicao_tempos.png> <./plots/th
-roughput_algoritmos.png>]
+[6]
+! Undefined control sequence.
+l.624 ...rimentais e scripts dispon√≠veis em: \url
+                                                  {https://github.com/Petw14...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -575,7 +658,7 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[5
+[7
 
 ] (./artigo_ieee_portugues.aux)
  ***********
@@ -584,26 +667,27 @@ L3 programming layer <2025-06-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7166 strings out of 467888
- 122189 string characters out of 5434067
- 554635 words of memory out of 5000000
- 35642 multiletter control sequences out of 15000+600000
- 659623 words of font info for 99 fonts, out of 8000000 for 9000
+ 7203 strings out of 467888
+ 122695 string characters out of 5434067
+ 561701 words of memory out of 5000000
+ 35669 multiletter control sequences out of 15000+600000
+ 666640 words of font info for 116 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,8n,77p,1008b,389s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,12n,77p,1008b,387s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/
-fonts/type1/urw/times/utmri8a.pfb>
-Output written on artigo_ieee_portugues.pdf (5 pages, 2553708 bytes).
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fo
+nts/type1/urw/times/utmri8a.pfb>
+Output written on artigo_ieee_portugues.pdf (7 pages, 2587561 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 41 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
