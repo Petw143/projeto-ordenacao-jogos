@@ -47,15 +47,15 @@ if "%1"=="setup" (
 
 if "%1"=="latex" (
     echo 📊 Compilando artigo LaTeX para PDF...
-    if not exist "artigo_ieee_latex.tex" (
-        echo ❌ Arquivo artigo_ieee_latex.tex não encontrado!
+    if not exist "artigo_ieee_portugues.tex" (
+        echo ❌ Arquivo artigo_ieee_portugues.tex não encontrado!
         goto end
     )
     docker-compose run --rm latex
-    if exist "artigo_ieee_latex.pdf" (
-        echo ✅ PDF gerado com sucesso: artigo_ieee_latex.pdf
+    if exist "artigo_ieee_portugues.pdf" (
+        echo ✅ PDF gerado com sucesso: artigo_ieee_portugues.pdf
         echo 🚀 Abrindo PDF...
-        start artigo_ieee_latex.pdf
+        start artigo_ieee_portugues.pdf
     ) else (
         echo ❌ Erro na compilação. Verifique o arquivo .log
     )

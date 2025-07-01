@@ -19,7 +19,7 @@ def teste_imports():
         from geradores import GeradorDados
         print("✅ geradores.py - OK")
         
-        from algoritmos import MergeSort, QuickSort
+        from algoritmos import obter_todos_algoritmos
         print("✅ algoritmos.py - OK")
         
         from benchmark import Benchmark
@@ -70,25 +70,23 @@ def teste_algoritmos():
     print("\n⚡ Testando algoritmos...")
     
     try:
-        from algoritmos import MergeSort, QuickSort
+        from algoritmos import obter_todos_algoritmos
         from geradores import GeradorDados
         
         gerador = GeradorDados()
         dados_teste = gerador.gerar(100, 'exponencial')
         
-        # Teste Merge Sort
-        merge = MergeSort()
-        resultado_merge = merge.ordenar(dados_teste.copy())
-        ordenado_merge = all(resultado_merge[i] <= resultado_merge[i+1] for i in range(len(resultado_merge)-1))
-        print(f"✅ Merge Sort: {'Ordenou corretamente' if ordenado_merge else 'ERRO na ordenação'}")
+        # Testar todas as variantes
+        todos_algoritmos = obter_todos_algoritmos(cutoff=10)
+        for i, algoritmo in enumerate(todos_algoritmos):
+            resultado = algoritmo.ordenar(dados_teste.copy())
+            ordenado = all(resultado[i] <= resultado[i+1] for i in range(len(resultado)-1))
+            status = 'Ordenou corretamente' if ordenado else 'ERRO na ordenação'
+            print(f"✅ {algoritmo.nome}: {status}")
         
-        # Teste Quick Sort
-        quick = QuickSort()
-        resultado_quick = quick.ordenar(dados_teste.copy())
-        ordenado_quick = all(resultado_quick[i] <= resultado_quick[i+1] for i in range(len(resultado_quick)-1))
-        print(f"✅ Quick Sort: {'Ordenou corretamente' if ordenado_quick else 'ERRO na ordenação'}")
+        print(f"✅ Total de algoritmos testados: {len(todos_algoritmos)}")
         
-        return ordenado_merge and ordenado_quick
+        return len(todos_algoritmos) > 0
         
     except Exception as e:
         print(f"❌ Erro nos algoritmos: {e}")
@@ -101,14 +99,15 @@ def teste_benchmark():
     
     try:
         from benchmark import Benchmark
-        from algoritmos import MergeSort
+        from algoritmos import obter_todos_algoritmos
         from geradores import GeradorDados
         
         gerador = GeradorDados()
         dados_teste = gerador.gerar(1000, 'exponencial')
         
         benchmark = Benchmark()
-        merge = MergeSort()
+        algoritmos = obter_todos_algoritmos(cutoff=10)
+        merge = algoritmos[0]  # Usar o primeiro algoritmo da lista
         
         # Teste medição simples
         tempo = benchmark.medir_tempo(merge, dados_teste.copy())

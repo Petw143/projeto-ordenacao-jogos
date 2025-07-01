@@ -53,7 +53,7 @@ class GeradorGraficos:
         """
         self.tema = tema
         self.logger = logging.getLogger(__name__)
-        self.cores_gaming = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']  # Reduzido para 4 cores
+        self.cores_gaming = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']  # 6 cores para 6 algoritmos
         self.dpi = 300
         
         # Verificar disponibilidade das bibliotecas (informativo apenas)
@@ -64,7 +64,7 @@ class GeradorGraficos:
             plt.style.use('dark_background')
             self.cores = self.cores_gaming
         else:
-            self.cores = sns.color_palette("husl", 4)  # Reduzido para 4 cores
+            self.cores = sns.color_palette("husl", 6)  # 6 cores para 6 algoritmos
             
         # Criar diretório de plots
         os.makedirs('plots', exist_ok=True)
@@ -287,9 +287,12 @@ class GeradorGraficos:
             # Agrupar por tamanho e calcular média
             escalabilidade = dados_algo.groupby(col_tamanho)['tempo_medio'].agg(['mean', 'std']).reset_index()
             
+            # Usar cor cíclica para evitar IndexError
+            cor = self.cores[i % len(self.cores)]
+            
             plt.errorbar(escalabilidade[col_tamanho], escalabilidade['mean'], 
                         yerr=escalabilidade['std'], label=algoritmo, 
-                        marker='o', linewidth=2, markersize=8, color=self.cores[i])
+                        marker='o', linewidth=2, markersize=8, color=cor)
         
         plt.title('⚡ Análise de Escalabilidade dos Algoritmos', fontsize=16, fontweight='bold')
         plt.xlabel('Tamanho dos Dados (número de elementos)', fontsize=12)
@@ -391,7 +394,7 @@ class GeradorGraficos:
         fig, axes = plt.subplots(2, 2, figsize=(14, 10))
         
         # Histograma geral
-        axes[0,0].hist(df['tempo_medio'], bins=20, alpha=0.7, color=self.cores[0], edgecolor='black')
+        axes[0,0].hist(df['tempo_medio'], bins=20, alpha=0.7, color=self.cores[0 % len(self.cores)], edgecolor='black')
         axes[0,0].set_title('Distribuição Geral dos Tempos', fontweight='bold')
         axes[0,0].set_xlabel('Tempo (segundos)')
         axes[0,0].set_ylabel('Frequência')
@@ -400,8 +403,9 @@ class GeradorGraficos:
         if 'algoritmo' in df.columns:
             for i, algoritmo in enumerate(df['algoritmo'].unique()):
                 dados_algo = df[df['algoritmo'] == algoritmo]['tempo_medio']
+                cor = self.cores[i % len(self.cores)]  # Usar cor cíclica
                 axes[0,1].hist(dados_algo, bins=15, alpha=0.6, label=algoritmo, 
-                              color=self.cores[i], edgecolor='black')
+                              color=cor, edgecolor='black')
             
             axes[0,1].set_title('Distribuição por Algoritmo', fontweight='bold')
             axes[0,1].set_xlabel('Tempo (segundos)')
@@ -417,14 +421,15 @@ class GeradorGraficos:
         if 'algoritmo' in df.columns:
             for i, algoritmo in enumerate(df['algoritmo'].unique()):
                 dados_algo = df[df['algoritmo'] == algoritmo]['tempo_medio']
+                cor = self.cores[i % len(self.cores)]  # Usar cor cíclica
                 axes[1,1].hist(dados_algo, bins=15, alpha=0.5, density=True, 
-                              label=algoritmo, color=self.cores[i])
+                              label=algoritmo, color=cor)
                 
                 # Adicionar curva de densidade
                 from scipy.stats import gaussian_kde
                 densidade = gaussian_kde(dados_algo)
                 x_range = np.linspace(dados_algo.min(), dados_algo.max(), 100)
-                axes[1,1].plot(x_range, densidade(x_range), color=self.cores[i], linewidth=2)
+                axes[1,1].plot(x_range, densidade(x_range), color=cor, linewidth=2)
             
             axes[1,1].set_title('Curvas de Densidade', fontweight='bold')
             axes[1,1].set_xlabel('Tempo (segundos)')
@@ -459,9 +464,10 @@ class GeradorGraficos:
                                        columns='algoritmo', aggfunc='mean')
             
             for i, algoritmo in enumerate(dados_pivot.columns):
+                cor = self.cores[i % len(self.cores)]  # Usar cor cíclica
                 plt.plot(dados_pivot.index, dados_pivot[algoritmo], 
                         marker='o', linewidth=2, markersize=8, 
-                        label=algoritmo, color=self.cores[i])
+                        label=algoritmo, color=cor)
         
         plt.title('⚡ Throughput dos Algoritmos (Elementos/segundo)', fontsize=14, fontweight='bold')
         plt.xlabel('Tamanho dos Dados')
@@ -492,8 +498,9 @@ class GeradorGraficos:
         if 'algoritmo' in df.columns:
             for i, algoritmo in enumerate(df['algoritmo'].unique()):
                 dados_algo = df[df['algoritmo'] == algoritmo]
+                cor = self.cores[i % len(self.cores)]  # Usar cor cíclica
                 plt.scatter(dados_algo['tempo_medio'], dados_algo['memoria_media'], 
-                           label=algoritmo, alpha=0.7, s=100, color=self.cores[i])
+                           label=algoritmo, alpha=0.7, s=100, color=cor)
         
         plt.title('Relação Tempo vs Uso de Memória', fontsize=14, fontweight='bold')
         plt.xlabel('Tempo de Execução (segundos)')

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.29)  30 JUN 2025 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.6.29)  1 JUL 2025 00:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -504,138 +504,200 @@ Underfull \hbox (badness 8075) in paragraph at lines 162--163
 
 
 [2]
-Underfull \hbox (badness 6032) in paragraph at lines 229--230
+Underfull \hbox (badness 10000) in paragraph at lines 228--230
+ \OT1/ptm/m/it/10 1) Va-ri-an-tes do Merge Sort: [][] \OT1/ptm/b/n/10 1. Merge 
+Sort
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
+ \OT1/ptm/m/it/10 2) Va-ri-an-tes do Quick Sort: [][] \OT1/ptm/b/n/10 4. Quick 
+Sort
+ []
+
+
+
+
+Underfull \hbox (badness 2644) in paragraph at lines 287--288
+\OT1/ptm/m/n/10 atu-a-li-za-das in-cre-men-tal-mente, re-sul-tando em da-dos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
+[]\OT1/ptm/m/n/10 Merge Sort H[]^^Pbrido: 10-15% mais r[]apido que
+ []
+
+
+Underfull \hbox (badness 6032) in paragraph at lines 306--307
 []\OT1/ptm/b/n/10 Experimento Fa-to-rial 2\TS1/ptm/b/n/10 ≥\OT1/ptm/m/n/10 : Im
 -ple-men-ta-mos as 8
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 252--253
+
+[3]
+Underfull \hbox (badness 3838) in paragraph at lines 329--330
 []\OT1/ptm/m/n/10 Processador: AMD Ry-zen 7 5800H with Ra-deon
  []
 
 
-
-
-Overfull \hbox (12.47725pt too wide) in paragraph at lines 284--305
+Overfull \hbox (12.47725pt too wide) in paragraph at lines 361--382
  [][] 
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 307--308
+Underfull \hbox (badness 1533) in paragraph at lines 384--385
 \OT1/ptm/m/n/10 Sort su-pera Quick Sort sig-ni-fi-ca-ti-va-mente, es-pe-ci-al-m
 ente
  []
 
-<plots/boxplots_distribuicao.png, id=19, 1149.093pt x 859.2903pt>
+
+
+
+Overfull \hbox (35.17654pt too wide) in paragraph at lines 395--412
+ [][] 
+ []
+
+
+! LaTeX Error: Unicode character ‚â§ (U+2264)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.417 ...tion Sort para arrays ‚â§ 10 elementos):}
+                                                  
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 438--439
+[]\OT1/ptm/b/n/10 Trade-off\OT1/ptm/m/n/10 : Verifica[][]ao adi-ci-o-nal com-pe
+n-sada pela
+ []
+
+
+Underfull \hbox (badness 1983) in paragraph at lines 446--447
+[]\OT1/ptm/b/n/10 Sinergia Po-si-tiva\OT1/ptm/m/n/10 : As otimiza[][]oes se com
+-ple-men-
+ []
+
+
+Underfull \hbox (badness 2111) in paragraph at lines 446--447
+\OT1/ptm/m/n/10 tam, re-sul-tando em me-lho-ria de 30-45% so-bre a
+ []
+
+
+
+[4]
+<plots/boxplots_distribuicao.png, id=25, 1141.6251pt x 851.0997pt>
 File: plots/boxplots_distribuicao.png Graphic file (type png)
 <use plots/boxplots_distribuicao.png>
-Package pdftex.def Info: plots/boxplots_distribuicao.png  used on input line 31
-5.
-(pdftex.def)             Requested size: 232.19843pt x 173.6382pt.
+Package pdftex.def Info: plots/boxplots_distribuicao.png  used on input line 46
+7.
+(pdftex.def)             Requested size: 232.19843pt x 173.09998pt.
 
-
-[3]
-Underfull \hbox (badness 7273) in paragraph at lines 332--333
+Underfull \hbox (badness 7273) in paragraph at lines 484--485
 []\OT1/ptm/b/n/10 Gr[]aficos de intera[][]ao\OT1/ptm/m/n/10 : Visualiza[][]ao d
 os efei-tos
  []
 
-<plots/comparativo_barras.png, id=24, 1075.8594pt x 430.7292pt>
+<plots/comparativo_barras.png, id=27, 1075.8594pt x 430.7292pt>
 File: plots/comparativo_barras.png Graphic file (type png)
 <use plots/comparativo_barras.png>
-Package pdftex.def Info: plots/comparativo_barras.png  used on input line 341.
+Package pdftex.def Info: plots/comparativo_barras.png  used on input line 493.
 (pdftex.def)             Requested size: 232.19843pt x 92.95987pt.
-<plots/escalabilidade_algoritmos.png, id=25, 857.8449pt x 566.3559pt>
+
+
+<plots/escalabilidade_algoritmos.png, id=28, 859.7721pt x 569.7285pt>
 File: plots/escalabilidade_algoritmos.png Graphic file (type png)
 <use plots/escalabilidade_algoritmos.png>
 Package pdftex.def Info: plots/escalabilidade_algoritmos.png  used on input lin
-e 354.
-(pdftex.def)             Requested size: 232.19843pt x 153.29837pt.
-
-
-<plots/heatmap_correlacao.png, id=26, 638.385pt x 570.4512pt>
+e 506.
+(pdftex.def)             Requested size: 232.19843pt x 153.86353pt.
+<plots/heatmap_correlacao.png, id=29, 635.4942pt x 570.933pt>
 File: plots/heatmap_correlacao.png Graphic file (type png)
 <use plots/heatmap_correlacao.png>
-Package pdftex.def Info: plots/heatmap_correlacao.png  used on input line 365.
-(pdftex.def)             Requested size: 216.71906pt x 193.65489pt.
-<plots/interacao_fatores.png, id=27, 1149.093pt x 425.6703pt>
+Package pdftex.def Info: plots/heatmap_correlacao.png  used on input line 517.
+(pdftex.def)             Requested size: 216.71906pt x 194.69833pt.
+<plots/interacao_fatores.png, id=30, 1148.1294pt x 424.4658pt>
 File: plots/interacao_fatores.png Graphic file (type png)
 <use plots/interacao_fatores.png>
-Package pdftex.def Info: plots/interacao_fatores.png  used on input line 378.
-(pdftex.def)             Requested size: 232.19843pt x 86.01588pt.
-<plots/memoria_vs_tempo.png, id=28, 715.473pt x 570.933pt>
+Package pdftex.def Info: plots/interacao_fatores.png  used on input line 530.
+(pdftex.def)             Requested size: 232.19843pt x 85.84373pt.
+
+
+[5 <./plots/boxplots_distribuicao.png> <./plots/comparativo_barras.png> <./plot
+s/escalabilidade_algoritmos.png> <./plots/heatmap_correlacao.png>]
+<plots/memoria_vs_tempo.png, id=38, 714.5094pt x 569.2467pt>
 File: plots/memoria_vs_tempo.png Graphic file (type png)
 <use plots/memoria_vs_tempo.png>
-Package pdftex.def Info: plots/memoria_vs_tempo.png  used on input line 389.
-(pdftex.def)             Requested size: 216.71906pt x 172.93645pt.
-
-
-[4 <./plots/boxplots_distribuicao.png> <./plots/comparativo_barras.png> <./plot
-s/escalabilidade_algoritmos.png> <./plots/heatmap_correlacao.png> <./plots/inte
-racao_fatores.png>]
-<plots/distribuicao_tempos.png, id=37, 1004.553pt x 714.7503pt>
+Package pdftex.def Info: plots/memoria_vs_tempo.png  used on input line 541.
+(pdftex.def)             Requested size: 216.71906pt x 172.66019pt.
+<plots/distribuicao_tempos.png, id=39, 1003.3485pt x 713.7867pt>
 File: plots/distribuicao_tempos.png Graphic file (type png)
 <use plots/distribuicao_tempos.png>
-Package pdftex.def Info: plots/distribuicao_tempos.png  used on input line 402.
+Package pdftex.def Info: plots/distribuicao_tempos.png  used on input line 554.
 
-(pdftex.def)             Requested size: 232.19843pt x 165.20708pt.
-<plots/throughput_algoritmos.png, id=38, 858.8085pt x 570.933pt>
-File: plots/throughput_algoritmos.png Graphic file (type png)
-<use plots/throughput_algoritmos.png>
-Package pdftex.def Info: plots/throughput_algoritmos.png  used on input line 41
-3.
-(pdftex.def)             Requested size: 232.19843pt x 154.36304pt.
+(pdftex.def)             Requested size: 232.19843pt x 165.18039pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
+<plots/throughput_algoritmos.png, id=40, 858.3267pt x 569.2467pt>
+File: plots/throughput_algoritmos.png Graphic file (type png)
+<use plots/throughput_algoritmos.png>
+Package pdftex.def Info: plots/throughput_algoritmos.png  used on input line 56
+5.
+(pdftex.def)             Requested size: 232.19843pt x 153.99399pt.
 
-Underfull \hbox (badness 4048) in paragraph at lines 432--433
+Underfull \hbox (badness 4048) in paragraph at lines 584--585
 []\OT1/ptm/b/n/10 Estat[]^^Pstica F: \OT1/ptm/m/n/10 A raz[]ao F = (Vari[]ancia
  en-tre gru-
  []
 
 
-Underfull \hbox (badness 7221) in paragraph at lines 459--461
+
+[6 <./plots/interacao_fatores.png> <./plots/memoria_vs_tempo.png> <./plots/dist
+ribuicao_tempos.png> <./plots/throughput_algoritmos.png>]
+Underfull \hbox (badness 7221) in paragraph at lines 611--613
  \OT1/ptm/m/it/10 4) Ta-ma-nho do Efeito: [][] \OT1/ptm/m/n/10 Cohen's d para p
 rin-ci-pais
  []
 
 
 
-[5 <./plots/memoria_vs_tempo.png> <./plots/distribuicao_tempos.png> <./plots/th
-roughput_algoritmos.png>]
-Overfull \hbox (10.25484pt too wide) in paragraph at lines 514--535
+
+Overfull \hbox (10.25484pt too wide) in paragraph at lines 666--687
  [][] 
  []
 
 
-
-
-Underfull \hbox (badness 8189) in paragraph at lines 557--559
+Underfull \hbox (badness 8189) in paragraph at lines 709--711
 []\OT1/ptm/b/n/10 3. Intera[][]ao Tri-pla (Al-go-ritmo \TS1/ptm/b/n/10 ÷ \OT1/p
 tm/b/n/10 Ta-ma-nho \TS1/ptm/b/n/10 ÷
  []
 
 
-Underfull \hbox (badness 2913) in paragraph at lines 560--561
+Underfull \hbox (badness 2913) in paragraph at lines 712--713
 []\OT1/ptm/b/n/10 Melhor cen[]ario\OT1/ptm/m/n/10 : Quick Sort + 10k ele-men-to
 s +
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 582--583
+
+[7]
+Underfull \hbox (badness 1803) in paragraph at lines 734--735
 []\OT1/ptm/m/n/10 As otimiza[][]oes im-ple-men-ta-das (median-of-three, in-ser-
 
  []
 
 
 
-[6]
 ! Undefined control sequence.
-l.624 ...rimentais e scripts dispon√≠veis em: \url
+l.776 ...rimentais e scripts dispon√≠veis em: \url
                                                   {https://github.com/Petw14...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -656,22 +718,18 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-
-
-[7
-
-] (./artigo_ieee_portugues.aux)
+[8] (./artigo_ieee_portugues.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 7203 strings out of 467888
- 122695 string characters out of 5434067
- 561701 words of memory out of 5000000
- 35669 multiletter control sequences out of 15000+600000
- 666640 words of font info for 116 fonts, out of 8000000 for 9000
+ 7209 strings out of 467888
+ 122757 string characters out of 5434067
+ 566723 words of memory out of 5000000
+ 35672 multiletter control sequences out of 15000+600000
+ 669961 words of font info for 119 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,12n,77p,1008b,387s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
@@ -684,10 +742,10 @@ al/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
 /2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/tex
 mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fo
 nts/type1/urw/times/utmri8a.pfb>
-Output written on artigo_ieee_portugues.pdf (7 pages, 2587561 bytes).
+Output written on artigo_ieee_portugues.pdf (8 pages, 3844087 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 99 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -181,7 +181,8 @@ class AnalisadorResultados:
                 analise_memoria['teorica'] = {
                     'nota': 'Dados de memória não disponíveis - análise teórica',
                     'merge_sort': 'O(n) - usa array auxiliar',
-                    'quick_sort': 'O(log n) - recursão in-place'
+                    'quick_sort': 'O(log n) - recursão in-place',
+                    'insertion_sort': 'O(1) - ordenação in-place'
                 }
         
         except Exception as e:

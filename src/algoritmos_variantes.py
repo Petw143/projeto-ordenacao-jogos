@@ -1,3 +1,15 @@
+"""
+Múltiplas implementações dos algoritmos de ordenação para análise comparativa
+
+Este módulo contém diferentes versões dos algoritmos Merge Sort e Quick Sort
+para permitir análise detalhada do impacto de otimizações específicas:
+
+1. Versões puras (sem otimizações)
+2. Versões com Insertion Sort para subarrays pequenos
+3. Versões com Median-of-Three (Quick Sort)
+4. Versões com todas as otimizações
+"""
+
 import time
 from typing import List
 from abc import ABC, abstractmethod
@@ -16,21 +28,42 @@ class AlgoritmoOrdenacao(ABC):
         """Nome do algoritmo"""
         pass
 
-class MergeSort(AlgoritmoOrdenacao):
-    """Implementação do Merge Sort com otimizações básicas"""
+# ==================== INSERTION SORT ====================
+
+class InsertionSort(AlgoritmoOrdenacao):
+    """Insertion Sort para subarrays pequenos"""
     
     @property
     def nome(self) -> str:
-        return "Merge Sort (Otimizado com Cutoff)"
+        return "Insertion Sort"
     
     def ordenar(self, dados: List[int]) -> List[int]:
-        """
-        Algoritmo Merge Sort
+        """Implementação clássica do Insertion Sort"""
+        if len(dados) <= 1:
+            return dados
         
-        Complexidade: O(n log n) sempre
-        Estabilidade: Estável
-        Uso em jogos: Ideal para rankings oficiais onde consistência é crucial
-        """
+        dados_copia = dados.copy()
+        for i in range(1, len(dados_copia)):
+            key = dados_copia[i]
+            j = i - 1
+            while j >= 0 and dados_copia[j] > key:
+                dados_copia[j + 1] = dados_copia[j]
+                j -= 1
+            dados_copia[j + 1] = key
+        
+        return dados_copia
+
+# ==================== MERGE SORT VARIANTES ====================
+
+class MergeSortPuro(AlgoritmoOrdenacao):
+    """Merge Sort sem otimizações"""
+    
+    @property
+    def nome(self) -> str:
+        return "Merge Sort (Puro)"
+    
+    def ordenar(self, dados: List[int]) -> List[int]:
+        """Implementação pura do Merge Sort - sem otimizações"""
         if len(dados) <= 1:
             return dados
         
@@ -66,131 +99,7 @@ class MergeSort(AlgoritmoOrdenacao):
         
         return resultado
 
-class QuickSort(AlgoritmoOrdenacao):
-    """Implementação do Quick Sort com Median-of-Three"""
-    
-    @property
-    def nome(self) -> str:
-        return "Quick Sort (Otimizado com Median-of-Three)"
-    
-    def ordenar(self, dados: List[int]) -> List[int]:
-        """
-        Algoritmo Quick Sort
-        
-        Complexidade: O(n log n) médio, O(n²) pior caso
-        Estabilidade: Não estável
-        Uso em jogos: Rápido para ordenações temporárias durante partidas
-        """
-        if len(dados) <= 1:
-            return dados
-        
-        return self._quicksort_recursivo(dados, 0, len(dados) - 1)
-    
-    def _quicksort_recursivo(self, dados: List[int], inicio: int, fim: int) -> List[int]:
-        """Implementação recursiva do Quick Sort"""
-        if inicio < fim:
-            # Particionar e obter posição do pivot
-            pivot_pos = self._particionar(dados, inicio, fim)
-            
-            # Ordenar recursivamente as duas partições
-            self._quicksort_recursivo(dados, inicio, pivot_pos - 1)
-            self._quicksort_recursivo(dados, pivot_pos + 1, fim)
-        
-        return dados
-    
-    def _particionar(self, dados: List[int], inicio: int, fim: int) -> int:
-        """
-        Particionar array usando o último elemento como pivot
-        Otimização: usar mediana de três para melhor performance
-        """
-        # Otimização: mediana de três para escolher pivot
-        meio = (inicio + fim) // 2
-        if dados[meio] < dados[inicio]:
-            dados[inicio], dados[meio] = dados[meio], dados[inicio]
-        if dados[fim] < dados[inicio]:
-            dados[inicio], dados[fim] = dados[fim], dados[inicio]
-        if dados[fim] < dados[meio]:
-            dados[meio], dados[fim] = dados[fim], dados[meio]
-        
-        pivot = dados[fim]
-        i = inicio - 1
-        
-        for j in range(inicio, fim):
-            if dados[j] <= pivot:
-                i += 1
-                dados[i], dados[j] = dados[j], dados[i]
-        
-        dados[i + 1], dados[fim] = dados[fim], dados[i + 1]
-        return i + 1
-
-# ==================== ALGORITMOS VARIANTES PARA ANÁLISE COMPARATIVA ====================
-
-class InsertionSort(AlgoritmoOrdenacao):
-    """Insertion Sort - usado como baseline e para cutoff"""
-    
-    @property
-    def nome(self) -> str:
-        return "Insertion Sort (Algoritmo Base)"
-    
-    def ordenar(self, dados: List[int]) -> List[int]:
-        """Implementação clássica do Insertion Sort"""
-        if len(dados) <= 1:
-            return dados
-        
-        dados_copia = dados.copy()
-        for i in range(1, len(dados_copia)):
-            key = dados_copia[i]
-            j = i - 1
-            while j >= 0 and dados_copia[j] > key:
-                dados_copia[j + 1] = dados_copia[j]
-                j -= 1
-            dados_copia[j + 1] = key
-        
-        return dados_copia
-
-class MergeSortPuro(AlgoritmoOrdenacao):
-    """Merge Sort sem otimizações - versão pura para comparação"""
-    
-    @property
-    def nome(self) -> str:
-        return "Merge Sort (Implementação Clássica)"
-    
-    def ordenar(self, dados: List[int]) -> List[int]:
-        """Implementação pura do Merge Sort - sem otimizações"""
-        if len(dados) <= 1:
-            return dados
-        
-        # Dividir
-        meio = len(dados) // 2
-        esquerda = dados[:meio]
-        direita = dados[meio:]
-        
-        # Conquistar (recursão)
-        esquerda_ordenada = self.ordenar(esquerda)
-        direita_ordenada = self.ordenar(direita)
-        
-        # Combinar
-        return self._merge(esquerda_ordenada, direita_ordenada)
-    
-    def _merge(self, esquerda: List[int], direita: List[int]) -> List[int]:
-        """Combinar duas listas ordenadas"""
-        resultado = []
-        i = j = 0
-        
-        while i < len(esquerda) and j < len(direita):
-            if esquerda[i] <= direita[j]:
-                resultado.append(esquerda[i])
-                i += 1
-            else:
-                resultado.append(direita[j])
-                j += 1
-        
-        resultado.extend(esquerda[i:])
-        resultado.extend(direita[j:])
-        
-        return resultado
-
-class MergeSortOtimizado(AlgoritmoOrdenacao):
+class MergeSortComInsertionSort(AlgoritmoOrdenacao):
     """Merge Sort com Insertion Sort para subarrays pequenos"""
     
     def __init__(self, cutoff: int = 10):
@@ -199,7 +108,7 @@ class MergeSortOtimizado(AlgoritmoOrdenacao):
     
     @property
     def nome(self) -> str:
-        return f"Merge Sort (Híbrido com Insertion Sort, cutoff={self.cutoff})"
+        return f"Merge Sort + Insertion Sort (cutoff={self.cutoff})"
     
     def ordenar(self, dados: List[int]) -> List[int]:
         """Merge Sort com otimização para subarrays pequenos"""
@@ -223,6 +132,7 @@ class MergeSortOtimizado(AlgoritmoOrdenacao):
         resultado = []
         i = j = 0
         
+        # Comparar e mesclar
         while i < len(esquerda) and j < len(direita):
             if esquerda[i] <= direita[j]:
                 resultado.append(esquerda[i])
@@ -231,17 +141,20 @@ class MergeSortOtimizado(AlgoritmoOrdenacao):
                 resultado.append(direita[j])
                 j += 1
         
+        # Adicionar elementos restantes
         resultado.extend(esquerda[i:])
         resultado.extend(direita[j:])
         
         return resultado
 
+# ==================== QUICK SORT VARIANTES ====================
+
 class QuickSortPuro(AlgoritmoOrdenacao):
-    """Quick Sort sem otimizações - versão pura para comparação"""
+    """Quick Sort sem otimizações"""
     
     @property
     def nome(self) -> str:
-        return "Quick Sort (Implementação Clássica)"
+        return "Quick Sort (Puro)"
     
     def ordenar(self, dados: List[int]) -> List[int]:
         """Quick Sort puro - último elemento como pivot"""
@@ -254,7 +167,10 @@ class QuickSortPuro(AlgoritmoOrdenacao):
     def _quicksort_recursivo(self, dados: List[int], inicio: int, fim: int) -> List[int]:
         """Implementação recursiva do Quick Sort"""
         if inicio < fim:
+            # Particionar e obter posição do pivot
             pivot_pos = self._particionar_simples(dados, inicio, fim)
+            
+            # Ordenar recursivamente as duas partições
             self._quicksort_recursivo(dados, inicio, pivot_pos - 1)
             self._quicksort_recursivo(dados, pivot_pos + 1, fim)
         
@@ -273,46 +189,36 @@ class QuickSortPuro(AlgoritmoOrdenacao):
         dados[i + 1], dados[fim] = dados[fim], dados[i + 1]
         return i + 1
 
-
-
-class QuickSortOtimizado(AlgoritmoOrdenacao):
-    """Quick Sort com todas as otimizações combinadas"""
-    
-    def __init__(self, cutoff: int = 10):
-        self.cutoff = cutoff
-        self.insertion_sort = InsertionSort()
+class QuickSortComMedianOfThree(AlgoritmoOrdenacao):
+    """Quick Sort com Median-of-Three para seleção de pivot"""
     
     @property
     def nome(self) -> str:
-        return f"Quick Sort (Híbrido com Insertion Sort, cutoff={self.cutoff})"
+        return "Quick Sort + Median-of-Three"
     
     def ordenar(self, dados: List[int]) -> List[int]:
-        """Quick Sort com todas as otimizações"""
-        if len(dados) <= self.cutoff:
-            return self.insertion_sort.ordenar(dados)
+        """Quick Sort com median-of-three"""
+        if len(dados) <= 1:
+            return dados
         
         dados_copia = dados.copy()
         return self._quicksort_recursivo(dados_copia, 0, len(dados_copia) - 1)
     
     def _quicksort_recursivo(self, dados: List[int], inicio: int, fim: int) -> List[int]:
         """Implementação recursiva do Quick Sort"""
-        if fim - inicio + 1 <= self.cutoff:
-            # Usar insertion sort para subarrays pequenos
-            subarray = dados[inicio:fim+1]
-            subarray_ordenado = self.insertion_sort.ordenar(subarray)
-            dados[inicio:fim+1] = subarray_ordenado
-            return dados
-        
         if inicio < fim:
-            pivot_pos = self._particionar_completo(dados, inicio, fim)
+            # Particionar e obter posição do pivot
+            pivot_pos = self._particionar_median_of_three(dados, inicio, fim)
+            
+            # Ordenar recursivamente as duas partições
             self._quicksort_recursivo(dados, inicio, pivot_pos - 1)
             self._quicksort_recursivo(dados, pivot_pos + 1, fim)
         
         return dados
     
-    def _particionar_completo(self, dados: List[int], inicio: int, fim: int) -> int:
-        """Particionamento com median-of-three e insertion sort"""
-        # Median-of-three para escolher pivot
+    def _particionar_median_of_three(self, dados: List[int], inicio: int, fim: int) -> int:
+        """Particionamento com median-of-three"""
+        # Otimização: mediana de três para escolher pivot
         meio = (inicio + fim) // 2
         if dados[meio] < dados[inicio]:
             dados[inicio], dados[meio] = dados[meio], dados[inicio]
@@ -332,43 +238,141 @@ class QuickSortOtimizado(AlgoritmoOrdenacao):
         dados[i + 1], dados[fim] = dados[fim], dados[i + 1]
         return i + 1
 
-# ==================== FACTORY PARA CRIAR TODAS AS VERSÕES ====================
-
-def obter_todos_algoritmos(cutoff: int = 10) -> List[AlgoritmoOrdenacao]:
-    """
-    Retorna todas as variantes dos algoritmos para análise comparativa
+class QuickSortComInsertionSort(AlgoritmoOrdenacao):
+    """Quick Sort com Insertion Sort para subarrays pequenos"""
     
-    Args:
-        cutoff: Limite para usar insertion sort em subarrays pequenos
+    def __init__(self, cutoff: int = 10):
+        self.cutoff = cutoff
+        self.insertion_sort = InsertionSort()
+    
+    @property
+    def nome(self) -> str:
+        return f"Quick Sort + Insertion Sort (cutoff={self.cutoff})"
+    
+    def ordenar(self, dados: List[int]) -> List[int]:
+        """Quick Sort com otimização para subarrays pequenos"""
+        if len(dados) <= self.cutoff:
+            return self.insertion_sort.ordenar(dados)
         
-    Returns:
-        Lista com 6 algoritmos DISTINTOS para análise comparativa
-    """
+        dados_copia = dados.copy()
+        return self._quicksort_recursivo(dados_copia, 0, len(dados_copia) - 1)
+    
+    def _quicksort_recursivo(self, dados: List[int], inicio: int, fim: int) -> List[int]:
+        """Implementação recursiva do Quick Sort"""
+        if fim - inicio + 1 <= self.cutoff:
+            # Usar insertion sort para subarrays pequenos
+            subarray = dados[inicio:fim+1]
+            subarray_ordenado = self.insertion_sort.ordenar(subarray)
+            dados[inicio:fim+1] = subarray_ordenado
+            return dados
+        
+        if inicio < fim:
+            # Particionar e obter posição do pivot
+            pivot_pos = self._particionar_simples(dados, inicio, fim)
+            
+            # Ordenar recursivamente as duas partições
+            self._quicksort_recursivo(dados, inicio, pivot_pos - 1)
+            self._quicksort_recursivo(dados, pivot_pos + 1, fim)
+        
+        return dados
+    
+    def _particionar_simples(self, dados: List[int], inicio: int, fim: int) -> int:
+        """Particionamento simples - último elemento como pivot"""
+        pivot = dados[fim]
+        i = inicio - 1
+        
+        for j in range(inicio, fim):
+            if dados[j] <= pivot:
+                i += 1
+                dados[i], dados[j] = dados[j], dados[i]
+        
+        dados[i + 1], dados[fim] = dados[fim], dados[i + 1]
+        return i + 1
+
+class QuickSortCompleto(AlgoritmoOrdenacao):
+    """Quick Sort com todas as otimizações"""
+    
+    def __init__(self, cutoff: int = 10):
+        self.cutoff = cutoff
+        self.insertion_sort = InsertionSort()
+    
+    @property
+    def nome(self) -> str:
+        return f"Quick Sort Completo (cutoff={self.cutoff})"
+    
+    def ordenar(self, dados: List[int]) -> List[int]:
+        """Quick Sort com todas as otimizações"""
+        if len(dados) <= self.cutoff:
+            return self.insertion_sort.ordenar(dados)
+        
+        dados_copia = dados.copy()
+        return self._quicksort_recursivo(dados_copia, 0, len(dados_copia) - 1)
+    
+    def _quicksort_recursivo(self, dados: List[int], inicio: int, fim: int) -> List[int]:
+        """Implementação recursiva do Quick Sort"""
+        if fim - inicio + 1 <= self.cutoff:
+            # Usar insertion sort para subarrays pequenos
+            subarray = dados[inicio:fim+1]
+            subarray_ordenado = self.insertion_sort.ordenar(subarray)
+            dados[inicio:fim+1] = subarray_ordenado
+            return dados
+        
+        if inicio < fim:
+            # Particionar e obter posição do pivot
+            pivot_pos = self._particionar_completo(dados, inicio, fim)
+            
+            # Ordenar recursivamente as duas partições
+            self._quicksort_recursivo(dados, inicio, pivot_pos - 1)
+            self._quicksort_recursivo(dados, pivot_pos + 1, fim)
+        
+        return dados
+    
+    def _particionar_completo(self, dados: List[int], inicio: int, fim: int) -> int:
+        """Particionamento com median-of-three e insertion sort"""
+        # Otimização: mediana de três para escolher pivot
+        meio = (inicio + fim) // 2
+        if dados[meio] < dados[inicio]:
+            dados[inicio], dados[meio] = dados[meio], dados[inicio]
+        if dados[fim] < dados[inicio]:
+            dados[inicio], dados[fim] = dados[fim], dados[inicio]
+        if dados[fim] < dados[meio]:
+            dados[meio], dados[fim] = dados[fim], dados[meio]
+        
+        pivot = dados[fim]
+        i = inicio - 1
+        
+        for j in range(inicio, fim):
+            if dados[j] <= pivot:
+                i += 1
+                dados[i], dados[j] = dados[j], dados[i]
+        
+        dados[i + 1], dados[fim] = dados[fim], dados[i + 1]
+        return i + 1
+
+# ==================== FACTORY PARA CRIAR ALGORITMOS ====================
+
+def criar_todos_algoritmos(cutoff: int = 10) -> List[AlgoritmoOrdenacao]:
+    """Criar todas as variantes dos algoritmos para comparação"""
     return [
-        # Merge Sort variantes (3 versões distintas)
-        MergeSortPuro(),                    # Implementação clássica sem otimizações
-        MergeSortOtimizado(cutoff),         # Híbrido com insertion sort para pequenos arrays
-        MergeSort(),                        # Versão otimizada com cutoff básico
+        # Insertion Sort (referência)
+        InsertionSort(),
         
-        # Quick Sort variantes (3 versões distintas)
-        QuickSortPuro(),                    # Implementação clássica (último elemento como pivot)
-        QuickSort(),                        # Versão otimizada com median-of-three
-        QuickSortOtimizado(cutoff),         # Híbrido completo com todas as otimizações
+        # Merge Sort variantes
+        MergeSortPuro(),
+        MergeSortComInsertionSort(cutoff),
+        
+        # Quick Sort variantes
+        QuickSortPuro(),
+        QuickSortComMedianOfThree(),
+        QuickSortComInsertionSort(cutoff),
+        QuickSortCompleto(cutoff)
     ]
 
-def obter_algoritmos_principais(cutoff: int = 10) -> List[AlgoritmoOrdenacao]:
-    """
-    Retorna apenas os algoritmos principais para comparação focada
-    
-    Args:
-        cutoff: Limite para usar insertion sort em subarrays pequenos
-        
-    Returns:
-        Lista com os algoritmos principais (versões mais representativas)
-    """
+def criar_algoritmos_principais(cutoff: int = 10) -> List[AlgoritmoOrdenacao]:
+    """Criar apenas os algoritmos principais para comparação focada"""
     return [
-        MergeSortPuro(),                    # Merge Sort clássico
-        MergeSortOtimizado(cutoff),         # Merge Sort híbrido
-        QuickSortPuro(),                    # Quick Sort clássico
-        QuickSortOtimizado(cutoff)          # Quick Sort híbrido
+        MergeSortPuro(),
+        MergeSortComInsertionSort(cutoff),
+        QuickSortPuro(),
+        QuickSortCompleto(cutoff)
     ]
