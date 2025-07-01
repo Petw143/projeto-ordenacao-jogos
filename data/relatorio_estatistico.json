@@ -1,9 +1,13 @@
 {
-  "timestamp": "2025-06-29T21:32:11.948735",
-  "total_experimentos": 8,
+  "timestamp": "2025-06-30T20:03:30.280610",
+  "total_experimentos": 24,
   "algoritmos_testados": [
-    "merge_sort",
-    "quick_sort"
+    "merge_sort_implementação_clássica",
+    "merge_sort_híbrido_com_insertion_sort,_cutoff_10",
+    "merge_sort_otimizado_com_cutoff",
+    "quick_sort_implementação_clássica",
+    "quick_sort_otimizado_com_median_of_three",
+    "quick_sort_híbrido_com_insertion_sort,_cutoff_10"
   ],
   "tamanhos_testados": [
     10000,
@@ -14,47 +18,71 @@
     "quase"
   ],
   "estatisticas_por_algoritmo": {
-    "merge_sort": {
-      "tempo_medio_geral": 0.39265578627502007,
-      "tempo_desvio_geral": 0.38200341453971226,
-      "memoria_media_geral": 1.45849609375,
-      "throughput_medio_geral": 150292.89408821383
+    "merge_sort_implementação_clássica": {
+      "tempo_medio_geral": 0.21600853000018105,
+      "tempo_desvio_geral": 0.21219120911698286,
+      "memoria_media_geral": 1.2392578125,
+      "throughput_medio_geral": 279185.76287277415
     },
-    "quick_sort": {
-      "tempo_medio_geral": 0.5350238166250506,
-      "tempo_desvio_geral": 0.577942220688194,
-      "memoria_media_geral": 0.01591796875,
-      "throughput_medio_geral": 145127.3945469494
+    "merge_sort_híbrido_com_insertion_sort,_cutoff_10": {
+      "tempo_medio_geral": 0.1783522899997479,
+      "tempo_desvio_geral": 0.1836990647598593,
+      "memoria_media_geral": 1.3046875,
+      "throughput_medio_geral": 376340.8702993283
+    },
+    "merge_sort_otimizado_com_cutoff": {
+      "tempo_medio_geral": 0.21588702000062768,
+      "tempo_desvio_geral": 0.22032614495522126,
+      "memoria_media_geral": 1.3046875,
+      "throughput_medio_geral": 302695.6941383947
+    },
+    "quick_sort_implementação_clássica": {
+      "tempo_medio_geral": 0.308456754999861,
+      "tempo_desvio_geral": 0.32623455876868174,
+      "memoria_media_geral": 0.07675781250000001,
+      "throughput_medio_geral": 288910.2811213165
+    },
+    "quick_sort_otimizado_com_median_of_three": {
+      "tempo_medio_geral": 0.32365328000050797,
+      "tempo_desvio_geral": 0.33834497754389137,
+      "memoria_media_geral": 0.0,
+      "throughput_medio_geral": 231230.2595558695
+    },
+    "quick_sort_híbrido_com_insertion_sort,_cutoff_10": {
+      "tempo_medio_geral": 0.30337329499998306,
+      "tempo_desvio_geral": 0.3231399223987901,
+      "memoria_media_geral": 0.000390625,
+      "throughput_medio_geral": 284624.1802005399
     }
   },
   "anova": {
-    "f_statistic": 0.16892523879674295,
-    "p_value": 0.6953447953229688,
+    "f_statistic": 0.1993071949399046,
+    "p_value": 0.9586046131231819,
     "significativo": "False"
   },
   "matriz_correlacao": {
     "fator_a_tamanho": {
       "fator_a_tamanho": 1.0,
-      "tempo_medio": 0.9437683607312691,
-      "memoria_media": 0.5795263163772346,
-      "throughput_medio": -0.8185047269800442
+      "tempo_medio": 0.9322880196413504,
+      "memoria_media": 0.5920464857057116,
+      "throughput_medio": -0.6891700518749272
     },
     "tempo_medio": {
-      "fator_a_tamanho": 0.9437683607312691,
+      "fator_a_tamanho": 0.9322880196413504,
       "tempo_medio": 1.0,
-      "memoria_media": 0.35973274254974497,
-      "throughput_medio": -0.93362696981429
+      "memoria_media": 0.2989028835427411,
+      "throughput_medio": -0.8059115480168368
     },
     "memoria_media": {
-      "fator_a_tamanho": 0.5795263163772346,
-      "tempo_medio": 0.35973274254974497,
+      "fator_a_tamanho": 0.5920464857057116,
+      "tempo_medio": 0.2989028835427411,
       "memoria_media": 1.0,
-      "throughput_medio": -0.17878645232968493
+      "throughput_medio": -0.11865665502172645
     },
     "throughput_medio": {
-      "fator_a_tamanho": -0.8185047269800442,
-      "tempo_medio": -0.93362696981429,
-      "memoria_media": -0.17878645232968493,
+      "fator_a_tamanho": -0.6891700518749272,
+      "tempo_medio": -0.8059115480168368,
+      "memoria_media": -0.11865665502172645,
       "throughput_medio": 1.0
     }
   }

@@ -161,7 +161,7 @@ Após executar, você terá:
 - Dados grandes (100k): Merge Sort 38-63% superior
 
 **🔄 Interação Algoritmo × Distribuição:**
-- Quick Sort: 133% mais lento em dados exponenciais vs. quase-ordenados (datasets grandes)
+- Quick Sort: 47% mais lento em dados exponenciais vs. quase-ordenados (datasets grandes)
 - Merge Sort: Apenas 5% de diferença (mais robusto às características dos dados)
 
 **🔄 Interação Tripla - Cenários Extremos:**

@@ -20,7 +20,7 @@ def main():
     
     # Importar módulos
     from geradores import GeradorDados
-    from algoritmos import MergeSort, QuickSort
+    from algoritmos import obter_todos_algoritmos
     from benchmark import Benchmark
     from analise import AnalisadorResultados
     from visualizacao import GeradorGraficos
@@ -28,11 +28,23 @@ def main():
     # Configurações do experimento
     TAMANHOS = [10000, 100000]
     TIPOS_DADOS = ['exponencial', 'quase_ordenado']
-    ALGORITMOS = {
-        'merge_sort': MergeSort(),
-        'quick_sort': QuickSort()
-    }
-    REPETICOES = 10
+    
+    # Obter TODOS os algoritmos variantes
+    todos_algoritmos = obter_todos_algoritmos(cutoff=10)
+    
+    # Criar dicionário com chaves simplificadas para compatibilidade
+    ALGORITMOS = {}
+    for algo in todos_algoritmos:
+        # Criar chave única baseada no nome do algoritmo
+        chave = algo.nome.lower().replace(' ', '_').replace('(', '').replace(')', '').replace('=', '_').replace('-', '_')
+        ALGORITMOS[chave] = algo
+    
+    # Log dos algoritmos que serão testados
+    logging.info(f"Algoritmos a serem testados: {list(ALGORITMOS.keys())}")
+    for chave, algo in ALGORITMOS.items():
+        logging.info(f"  {chave}: {algo.nome}")
+    
+    REPETICOES = 5  # Reduzido para 5 devido à análise completa de 6 algoritmos distintos
     
     logging.info("Iniciando experimentos...")
     
@@ -79,6 +91,13 @@ def main():
     logging.info("Executando análise estatística...")
     analisador = AnalisadorResultados()
     relatorio = analisador.analisar(df_resultados)  # AnalisadorResultados já aceita DataFrame
+    
+    # Executar análise específica das variantes de algoritmos
+    logging.info("Executando análise das variantes de algoritmos...")
+    relatorio_variantes = analisador.analisar_variantes_algoritmos(df_resultados)
+    
+    # Salvar análise das variantes
+    benchmark.salvar_resultados(relatorio_variantes, 'data/analise_variantes.json', 'json')
     
     # Gerar gráficos
     logging.info("Gerando visualizações...")

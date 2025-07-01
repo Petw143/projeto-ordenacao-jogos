@@ -1,0 +1,153 @@
+{
+  "timestamp": "2025-06-30T20:03:30.622734",
+  "total_variantes": 6,
+  "impacto_otimizacoes": {
+    "resumo": "Impacto das otimizações calculado"
+  },
+  "ranking_performance": {
+    "geral": [
+      {
+        "posicao": 1,
+        "algoritmo": "Merge Sort (Híbrido com Insertion Sort, cutoff=10)",
+        "tempo_medio": 0.178352,
+        "desvio_padrao": 0.183699,
+        "tempo_mediano": 0.155471
+      },
+      {
+        "posicao": 2,
+        "algoritmo": "Merge Sort (Otimizado com Cutoff)",
+        "tempo_medio": 0.215887,
+        "desvio_padrao": 0.220326,
+        "tempo_mediano": 0.189122
+      },
+      {
+        "posicao": 3,
+        "algoritmo": "Merge Sort (Implementação Clássica)",
+        "tempo_medio": 0.216009,
+        "desvio_padrao": 0.212191,
+        "tempo_mediano": 0.186731
+      },
+      {
+        "posicao": 4,
+        "algoritmo": "Quick Sort (Híbrido com Insertion Sort, cutoff=10)",
+        "tempo_medio": 0.303373,
+        "desvio_padrao": 0.32314,
+        "tempo_mediano": 0.275369
+      },
+      {
+        "posicao": 5,
+        "algoritmo": "Quick Sort (Implementação Clássica)",
+        "tempo_medio": 0.308457,
+        "desvio_padrao": 0.326235,
+        "tempo_mediano": 0.300728
+      },
+      {
+        "posicao": 6,
+        "algoritmo": "Quick Sort (Otimizado com Median-of-Three)",
+        "tempo_medio": 0.323653,
+        "desvio_padrao": 0.338345,
+        "tempo_mediano": 0.288688
+      }
+    ]
+  },
+  "analise_memoria": {
+    "teorica": {
+      "nota": "Dados de memória não disponíveis - análise teórica",
+      "merge_sort": "O(n) - usa array auxiliar",
+      "quick_sort": "O(log n) - recursão in-place"
+    }
+  },
+  "escalabilidade": {
+    "por_algoritmo": {
+      "Merge Sort (Implementação Clássica)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.03773931000032463,
+          0.3942777500000375
+        ]
+      },
+      "Merge Sort (Híbrido com Insertion Sort, cutoff=10)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.022744949999469098,
+          0.3339596300000267
+        ]
+      },
+      "Merge Sort (Otimizado com Cutoff)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.029114050000498534,
+          0.4026599900007568
+        ]
+      },
+      "Quick Sort (Implementação Clássica)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.026414010000007693,
+          0.5904994999997144
+        ]
+      },
+      "Quick Sort (Otimizado com Median-of-Three)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.03577520000035292,
+          0.611531360000663
+        ]
+      },
+      "Quick Sort (Híbrido com Insertion Sort, cutoff=10)": {
+        "tamanhos_testados": [
+          10000,
+          100000
+        ],
+        "tempos_medios": [
+          0.027053299999533917,
+          0.5796932900004321
+        ]
+      }
+    }
+  },
+  "recomendacoes_praticas": {
+    "performance": {
+      "mais_rapido": "Merge Sort (Híbrido com Insertion Sort, cutoff=10)",
+      "tempo_medio": 0.1783522899997479
+    },
+    "cenarios": {
+      "dados_pequenos": "Insertion Sort para datasets < 50 elementos",
+      "dados_grandes_velocidade": "Merge Sort (Híbrido com Insertion Sort, cutoff=10) - melhor performance geral",
+      "estabilidade_garantida": "Merge Sort - algoritmo estável"
+    }
+  },
+  "comparacao_familia": {
+    "merge_sort": {
+      "tempo_medio": 0.20341594666685223,
+      "variantes": [
+        "Merge Sort (Implementação Clássica)",
+        "Merge Sort (Híbrido com Insertion Sort, cutoff=10)",
+        "Merge Sort (Otimizado com Cutoff)"
+      ]
+    },
+    "quick_sort": {
+      "tempo_medio": 0.311827776666784,
+      "variantes": [
+        "Quick Sort (Implementação Clássica)",
+        "Quick Sort (Otimizado com Median-of-Three)",
+        "Quick Sort (Híbrido com Insertion Sort, cutoff=10)"
+      ]
+    }
+  }
+}

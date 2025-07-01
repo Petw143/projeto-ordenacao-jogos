@@ -293,7 +293,7 @@ class Benchmark:
         
         return df_resultados
     
-    def calcular_speedup(self, df_resultados: pd.DataFrame, algoritmo_referencia: str = 'merge_sort') -> pd.DataFrame:
+    def calcular_speedup(self, df_resultados: pd.DataFrame, algoritmo_referencia: str = 'merge_sort_implementacao_classica') -> pd.DataFrame:
         """
         Calcular speedup relativo entre algoritmos
         
@@ -312,8 +312,13 @@ class Benchmark:
         speedups = []
         
         for (tamanho, distribuicao), grupo in grupos:
-            # Tempo de referência
-            ref_tempo = grupo[grupo['fator_c_algoritmo'] == algoritmo_referencia]['tempo_medio'].iloc[0]
+            # Verificar se o algoritmo de referência existe no grupo
+            ref_rows = grupo[grupo['fator_c_algoritmo'] == algoritmo_referencia]
+            if ref_rows.empty:
+                # Se não encontrar o algoritmo de referência, usar o primeiro algoritmo do grupo
+                ref_tempo = grupo['tempo_medio'].iloc[0]
+            else:
+                ref_tempo = ref_rows['tempo_medio'].iloc[0]
             
             for _, row in grupo.iterrows():
                 speedup = ref_tempo / row['tempo_medio']
